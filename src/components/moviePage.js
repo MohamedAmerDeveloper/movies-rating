@@ -4,10 +4,7 @@ class moviePage extends Component{
    
   id=this.props.match.params.id;  
 
-  state={
-    data:this.props.data
-  }
-  
+   //calling the api function to get the data and put it in the state
    componentDidMount(){
       this.props.movieApi2(this.id);
       } 

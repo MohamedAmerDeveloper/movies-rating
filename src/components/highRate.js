@@ -4,11 +4,14 @@ class trending extends Component {
 
   imgPrefix=`https://image.tmdb.org/t/p/w500/`;
 
+ //calling the api function to get the data and put it in the state 
 componentDidMount(){
   this.props.moviesApi('','top_rated');
 }
 
 render(){
+
+  //make an array of jsx code merged with data 
   const content=this.props.data.result.map((x)=>{
     return(
     <div key={x.id} className="col-md-2 text-white py-4" >
@@ -22,6 +25,7 @@ render(){
 
     )
   });
+
   return (
     <div className="trending">
       <div className="container">

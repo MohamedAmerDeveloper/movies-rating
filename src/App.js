@@ -12,10 +12,12 @@ import MoviePage from './components/moviePage';
 class App extends Component {
 
   state={
+    //to recive json file for trending , home and highrate components
     result:[{id:1111,title:"aaaaa",poster_path:``,vote_average:``,overview:``}]
-  ,result2:{id:1111,title:"",poster_path:``,vote_average:``,overview:``}
+   //to recive json file for movie page
+    ,result2:{id:1111,title:"",poster_path:``,vote_average:``,overview:``}
   }
-
+ //function to get json file for trending , home and highrate components
   moviesApi= async (e,a) =>{
    let  api = await fetch(`https://api.themoviedb.org/3${e}/movie/${a}?api_key=1563719526528e7e769176e1d5fc9790`);
     let data = await api.json();
@@ -24,6 +26,7 @@ class App extends Component {
   });
   }
 
+  //function to get json file for movie page
   movieApi2= async (id) =>{
     let  api = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=1563719526528e7e769176e1d5fc9790&language=en-US`);
     let data = await api.json();
@@ -32,11 +35,10 @@ class App extends Component {
       });
       }
 
-      componentDidUpdate(){
-        console.log(this.state.result2);
-      }
 
   render(){
+
+    //we send the state and api functions in props 
      return (
       <BrowserRouter>
          <div className="App">

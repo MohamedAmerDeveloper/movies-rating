@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom';
 class home extends Component {
 
   imgPrefix=`https://image.tmdb.org/t/p/w500/`;
-
+ 
+  //calling the api function to get the data and put it in the state 
 componentDidMount(){
   this.props.moviesApi('','popular');
 }
 
 render(){
+
+   //make an array of jsx code merged with data
   const content=this.props.data.result.map((x)=>{
     return(
     <div key={x.id} className="col-md-2 text-white py-4" >
